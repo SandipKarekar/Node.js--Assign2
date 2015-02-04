@@ -10,6 +10,14 @@
     j.sortJsonObject(result, function (err, result){
 
       console.log(err,result);
+
+      var k = require('module3')
+
+      k.jsonToText(result, 'destinatin.txt', function (err, status){
+
+        console.log(err, status);
+
+      });
     
     });
 
