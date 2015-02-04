@@ -4,16 +4,17 @@ var jsonToText = function (object, destinFile, callback){
 
 	fs.exists(destinFile, function (exists) {
           
+      var status = 'Success';
       if(exists) {
         // Warning to user about the 
         //.txt file already file exists.
-        callback(null,'\nFile named \'' + destinFile + '\' already exists\n\n\'Going to replace it\'');
+        status = '\nFile named \'' + destinFile + '\' already exists.\n\n\'Going to replace it\'.';
       }
 	  fs.writeFile(destinFile, 'First Name | Last Name | Score \n', function (err) {
 		if(err){
           // We cannot write to the file so that we are here.
           // we have to notify that about user.
-          callback('\nWe can not write to the file \"' + err + '\"', 'fail');
+          callback('\nWe can not write to the file \"' + err + '\".', 'Fail');
           } else {
             
             for (var i = 0; i < object.students.length; i++) {
@@ -22,12 +23,11 @@ var jsonToText = function (object, destinFile, callback){
                 + object.students[i].lName + ' | '
                 + object.students[i].score + '\n', function (err) {
                 if (err) { 
-                  callback('\nError while appending the file ' + err.message, 'fail')
-                } else {
-                  callback(null, 'Success')
-                }
+                  callback('\nError while appending the file ' + err.message + '.', 'Fail')
+                } 
               });
             }
+            callback(null, status);
           }
       });
 	});
