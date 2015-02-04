@@ -1,5 +1,5 @@
 
-var readJsonFile = function (filename) {
+var readJsonFile = function (filename,callback) {
   
   var fs = require('fs');
   
@@ -7,20 +7,18 @@ var readJsonFile = function (filename) {
   	if(exists){
   		fs.readFile(filename, 'utf8', function (err, data) {  
           if (err) {
-          	console.log('\nError while reading the file' + err.message);
+          	callback('\nError while reading the file' + err.message, null);
           } else {
-            console.log('\nFile given for JSON is: \'' + filename + '\'');
             try {
               var studentObject = JSON.parse(data);
-              console.log(studentObject);
-              //return data.toString();
+              callback(null,studentObject);
             } catch (err) {
-              console.log('\nError while parsing the JSON file ' + err.message);
+              callback('\nError while parsing the JSON file ' + err.message, null);
             }
           }
       });
   	} else {
-  		console.log('\"Source file does not exists\"');
+  		callback('\"Source file does not exists\"', null);
   	}
   });
 }
