@@ -1,4 +1,9 @@
-
+ /**
+  * Reads the JSON file and parses it into the JSON object and returns it.
+  * @param {name of the file} filename.
+  * @param {function containing returned values as 1.Error, 2.Parsed JSON object } callback.
+  * For that it does the exception & error handling regarding file and JSON syntax.
+  */
 var readJsonFile = function (filename,callback) {
   
   var fs = require('fs');

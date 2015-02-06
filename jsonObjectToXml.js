@@ -1,4 +1,11 @@
-var jsonToXml = function (object, xmlFile, callback) {
+/**
+  * Reads the JSON object and writes the its data into XML file.
+  * @param {Sorted JSON object} object.
+  * @param {filename where the data should be written} xmlFile. 
+  * @param {function containing the errors and status of the process} callback
+  * In this it does error handlings regarding the file and sends the errors if any and the status of the process.
+  */
+  var jsonToXml = function (object, xmlFile, callback) {
 
 	var fs = require('fs');
 

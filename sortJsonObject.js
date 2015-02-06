@@ -1,4 +1,10 @@
-
+/**
+  * Sorts the valid JSON object and returns it.
+  * @param {JSON object to be sorted} object.
+  * @param {function containing returned values as 1.Error, 2.Sorted JSON object } callback.
+  * In this it first creates the valid JSON schema and afterwords validates the object with it 
+  * if it is valid then it sorts it in descending order and returns it.  
+  */
 var sortJsonObject = function (object, callback){
 	
 	var Validator = require('jsonschema').Validator;

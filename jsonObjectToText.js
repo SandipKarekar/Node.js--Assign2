@@ -1,3 +1,10 @@
+/**
+  * Reads the JSON object and writes the its data into text file.
+  * @param {Sorted JSON object} object.
+  * @param {filename where the data should be written} destinFile. 
+  * @param {function containing the errors and status of the process} callback
+  * In this it does error handlings regarding the file and sends the errors if any and the status of the process.
+  */
 var jsonToText = function (object, destinFile, callback){
 
 	var fs = require('fs');

@@ -1,4 +1,7 @@
- 
+/**
+  * This file uses all the modules created for reading and parsing JSON, sorting it 
+  * and writing the sorted JSON object into the text file and XML file.
+  */ 
  var sourceFile = 'source.json';
  var destinFile = 'destinatin.txt';
  var xmlFile = 'final.xml';
